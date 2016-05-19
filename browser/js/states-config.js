@@ -1,4 +1,12 @@
-juke.config(function($stateProvider) {
+juke.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+    // remove hashbangs
+    $locationProvider.html5Mode({ enabled: true, requireBase: false });
+
+    // empty route
+    $urlRouterProvider.when('/', function($state) {
+      $state.go('Albums');
+    });
 
     // all albums
     $stateProvider.state('Albums', {
@@ -15,7 +23,7 @@ juke.config(function($stateProvider) {
 
     // single album
     $stateProvider.state('Album', {
-        
+
         resolve: {
             album: function(AlbumFactory, $stateParams) {
                 return AlbumFactory.fetchById($stateParams.id);

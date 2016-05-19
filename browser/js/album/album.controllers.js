@@ -2,11 +2,11 @@
 
 /* ALBUMS (SINGULAR) CONTROLLER */
 
-juke.controller('AlbumCtrl', function ($scope, $log, PlayerFactory,album) {
-    
-    
+juke.controller('AlbumCtrl', function ($scope, $log, $window, PlayerFactory, album) {
+
+
    $scope.album = album;
-  
+
 
   // main toggle
   $scope.toggle = function (song) {
@@ -25,6 +25,10 @@ juke.controller('AlbumCtrl', function ($scope, $log, PlayerFactory,album) {
 
   $scope.isPlaying = function (song) {
     return PlayerFactory.isPlaying() && PlayerFactory.getCurrentSong() === song;
+  };
+
+  $scope.sendMail = function(emailId){
+    $window.open("mailto:"+ emailId, '_self');
   };
 
 });
