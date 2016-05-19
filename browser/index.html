@@ -26,12 +26,12 @@
           <img src="juke.svg" class="logo">
           <section>
             <h4 class="menu-item active">
-              <a href="/#/albums">ALBUMS</a>
+              <a ui-sref="Albums">ALBUMS</a>
             </h4>
           </section>
           <section>
             <h4 class="menu-item">
-              <a ng-click="viewAllArtists()" href="#">ARTISTS</a>
+              <a ui-sref="Artists">ARTISTS</a>
             </h4>
           </section>
         </sidebar>
@@ -43,7 +43,7 @@
 
       <ui-view></ui-view>
 
-        <!-- 
+        <!--
 
         <div class="album" ng-controller="AlbumCtrl" ng-show="showMe">
           <p>
